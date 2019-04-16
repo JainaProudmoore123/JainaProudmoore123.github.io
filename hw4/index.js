@@ -12,7 +12,7 @@ const examples = {
   'example2':
       'The shavings flew right and left; till at last the plane-iron came bump against an indestructible knot. ',
   'example3':
-      'As whence the sun ’gins his reflection Shipwracking storms and direful thunders break, So from that spring, whence comfort seem’d to come Discomfort swells.',
+      'Your Children can be Kings.',
   'example4':
       'So spake th’ Apostate Angel, though in pain, Vaunting aloud, but rackt with deep despare: And him thus answer’d soon his bold Compeer.'
 };
