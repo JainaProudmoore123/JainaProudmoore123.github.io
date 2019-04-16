@@ -8,13 +8,13 @@ const HOSTED_URLS = {
 
 const examples = {
   'example1':
-      'Scepticism was as much the result of knowledge, as knowledge is of scepticism.',
+      'There was a long silence after this and Alice could only hear whispers now and then, and at last she spread out her hand again and made another snatch in the air.',
   'example2':
-      'On each soft side—coincident with the parted swell, that but once leaving him, then flowed so wide away—on each bright side, the whale shed off enticings.',
+      'The shavings flew right and left; till at last the plane-iron came bump against an indestructible knot. ',
   'example3':
-      'By all that I have ever read, I am convinced that it is very common indeed; that human nature is particularly prone to it, and that there are very few of us who do not cherish a feeling of self-complacency on the score of some quality or other, real or imaginary.',
+      'As whence the sun ’gins his reflection Shipwracking storms and direful thunders break, So from that spring, whence comfort seem’d to come Discomfort swells.',
   'example4':
-      'Prince Vasíli kept the promise he had given to Princess Drubetskáya who had spoken to him on behalf of her only son Borís on the evening of Anna Pávlovna’s soiree.'
+      'So spake th’ Apostate Angel, though in pain, Vaunting aloud, but rackt with deep despare: And him thus answer’d soon his bold Compeer.'
 };
 
 function status(statusText) {
