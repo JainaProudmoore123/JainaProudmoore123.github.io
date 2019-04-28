@@ -142,7 +142,6 @@ async function setup() {
     const button = document.getElementById('load-model');
     button.addEventListener('click', async () => {
       const predictor = await new Classifier().init(HOSTED_URLS);
-      prepUI(x => predictor.predict(x));
     });
     button.style.display = 'inline-block';
   }
