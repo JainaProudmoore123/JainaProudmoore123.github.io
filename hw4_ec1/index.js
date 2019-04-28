@@ -6,6 +6,17 @@ const HOSTED_URLS = {
       'model_js/metadata.json'
 };
 
+const examples = {
+  'example1':
+      'There was a long silence after this and Alice could only hear whispers now and then, and at last she spread out her hand again and made another snatch in the air.',
+  'example2':
+      'The shavings flew right and left; till at last the plane-iron came bump against an indestructible knot. ',
+  'example3':
+      'Your Children can be Kings.',
+  'example4':
+      'So spake th’ Apostate Angel, though in pain, Vaunting aloud, but rackt with deep despare: And him thus answer’d soon his bold Compeer.'
+};
+
 function status(statusText) {
   console.log(statusText);
   document.getElementById('status').textContent = statusText;
@@ -36,14 +47,22 @@ function disableLoadModelButtons() {
 function doPredict(predict) {
   const textField = document.getElementById('text-entry');
   const result = predict(textField.value);
-  console.log(result);
   score_string = "Class scores: ";
   for (var x in result.score) {
     score_string += x + " ->  " + result.score[x].toFixed(4) + ", "
   }
-  console.log(score_string);
+  //console.log(score_string);
   status(
       score_string + ' elapsed: ' + result.elapsed.toFixed(3) + ' ms)');
+}
+
+function prepUI(predict) {
+  setPredictFunction(predict);
+  const testExampleSelect = document.getElementById('example-select');
+  testExampleSelect.addEventListener('change', () => {
+    settextField(examples[testExampleSelect.value], predict);
+  });
+  settextField(examples['example1'], predict);
 }
 
 async function urlExists(url) {
@@ -102,7 +121,8 @@ class Classifier {
 
   predict(text) {
     // Convert to lower case and remove all punctuations.
-    const inputText = text.trim().toLowerCase().replace(/(\.|\,|\!)/g, '').split(' ');
+    const inputText =
+        text.trim().toLowerCase().replace(/(\.|\,|\!)/g, '').split(' ');
     // Look up word indices.
     const inputBuffer = tf.buffer([1, this.maxLen], 'float32');
     for (let i = 0; i < inputText.length; ++i) {
@@ -111,7 +131,7 @@ class Classifier {
       //console.log(word, this.wordIndex[word], inputBuffer);
     }
     const input = inputBuffer.toTensor();
-    console.log(input);
+    //console.log(input);
 
     status('Running inference');
     const beginMs = performance.now();
@@ -131,6 +151,7 @@ async function setup() {
     const button = document.getElementById('load-model');
     button.addEventListener('click', async () => {
       const predictor = await new Classifier().init(HOSTED_URLS);
+      prepUI(x => predictor.predict(x));
     });
     button.style.display = 'inline-block';
   }
