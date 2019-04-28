@@ -115,6 +115,7 @@ class Classifier {
   }
 
   predict(text) {
+    console.log(text);
     // Convert to lower case and remove all punctuations.
     const inputText = text.trim().toLowerCase().replace(/(\.|\,|\!)/g, '').split(' ');
     // Look up word indices.
