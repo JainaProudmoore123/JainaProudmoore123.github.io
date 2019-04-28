@@ -8,13 +8,7 @@ const HOSTED_URLS = {
 
 const examples = {
   'example1':
-      'There was a long silence after this and Alice could only hear whispers now and then, and at last she spread out her hand again and made another snatch in the air.',
-  'example2':
-      'The shavings flew right and left; till at last the plane-iron came bump against an indestructible knot. ',
-  'example3':
-      'Your Children can be Kings.',
-  'example4':
-      'So spake th’ Apostate Angel, though in pain, Vaunting aloud, but rackt with deep despare: And him thus answer’d soon his bold Compeer.'
+      'light blue'
 };
 
 function status(statusText) {
@@ -131,7 +125,7 @@ class Classifier {
       //console.log(word, this.wordIndex[word], inputBuffer);
     }
     const input = inputBuffer.toTensor();
-    //console.log(input);
+    console.log(input);
 
     status('Running inference');
     const beginMs = performance.now();
