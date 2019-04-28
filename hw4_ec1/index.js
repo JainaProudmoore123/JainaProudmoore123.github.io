@@ -121,7 +121,7 @@ class Classifier {
     
     for (let i = 0; i < inputText.length; ++i) {
       const word = inputText[i];
-      inputBuffer.set(this.wordIndex[word], 0, i);
+      inputBuffer.set(this.wordIndex[word], 0, this.maxLen - inputText.length + i);
     }
     
     console.log(inputBuffer);
