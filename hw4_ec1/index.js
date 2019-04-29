@@ -44,11 +44,16 @@ function doPredict(predict) {
   score_string = "Class scores: ";
   console.log(result);
   for (var x in result.score) {
-    score_string += x + " ->  " + result.score[x].toFixed(4) + ", "
+    score_string += x + " ->  " + Math.trunc(255 * result.score[x]) + ", "
   }
   //console.log(score_string);
   status(
       score_string + ' elapsed: ' + result.elapsed.toFixed(3) + ' ms)');
+      
+  let rValue = Math.trunc(255 * result.score[0]);
+  let gValue = Math.trunc(255 * result.score[1]);
+  let bValue = Math.trunc(255 * result.score[2]);
+  document.getElementById("display-colorbox").style.backgroundColor = 'rgb(' + rValue + ',' + gValue + ',' + bValue + ')'
 }
 
 function prepUI(predict) {
